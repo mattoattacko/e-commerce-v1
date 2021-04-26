@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { commerce } from './lib/commerce';
+
 import { Products, Navbar, Cart, Checkout } from './components';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { commerce } from './lib/commerce';
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -51,7 +52,7 @@ const App = () => {
     fetchCart();
   }, []);
 
-  
+  console.log(cart);
 
   return (
     <Router>
@@ -70,7 +71,8 @@ const App = () => {
             />
           </Route>
           <Route exact path="/checkout">
-            <Checkout />
+          {/* here we are passing the cart as a prop so we can have access to it  */}
+            <Checkout cart={cart}/>
           </Route>
         </Switch>
       </div>
