@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// import { CssBaseline } from '@material-ui/core';
 
 import { Products, Navbar, Cart, Checkout } from './components';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
