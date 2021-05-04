@@ -1,9 +1,8 @@
 import React from 'react';
-import { TextField, Grid } from '@material-ui/core';
 import { useFormContext, Controller } from 'react-hook-form';
+import { TextField, Grid } from '@material-ui/core';
 
-
-const FormInput = ( { name, label } ) => {
+function FormInput({ name, label, required }) {
   const { control } = useFormContext();
   const isError = false;
 
@@ -12,11 +11,11 @@ const FormInput = ( { name, label } ) => {
     {/* this controller from react-hook-form allows us to use any other input or text field as a controller  */}
       <Controller 
         render={({ field}) => <TextField {...field} />}
-        control={control}
-        fullWidth
         name={name}
+        control={control}
         label={label}
-        required
+        fullWidth
+        required={required}
         error={isError}
       />
     </Grid>
